@@ -61,6 +61,21 @@ MODEL=deepseek-chat
 
 🤖 以下是 GitHub 上最火的 Python 爬虫仓库...
 （此处为真实 API 返回数据，已验证成功）
+---
+
+## 🤖 Agent 与普通聊天机器人的区别（自述说明）
+
+我认为 Agent 与普通聊天机器人最大的区别有两点：
+1. **是否调用外部工具获取真实数据**：普通聊天机器人只能凭大模型参数生成文本，容易产生幻觉；而 Agent 会调用真实的外部工具（如 GitHub API），用真实数据来回答问题。
+2. **是否具备多步自主决策循环**：普通聊天机器人是一问一答，单轮结束；而 Agent 具备 Think → Act → Observe 循环，能根据上一步的结果，自主决定下一步该调用哪个工具。
+
+### 📊 真实多步运行示例
+
+在执行复杂任务（如“搜索 Star 最高的 Python 爬虫仓库，然后看看作者资料”）时，终端输出了真正的多步回显：
+[step 1] 🔧 search_repos({'query': 'python crawler', 'limit': 5})
+[step 2] 🔧 get_github_user({'username': 'scrapy'})
+
+模型先调用了 search_repos 搜索仓库，拿到结果后，自己判断出需要再调用 get_github_user 去查作者资料。这证明 Agent 不是单轮问答，而是真正在自主规划、多步执行。
 
 ---
 
