@@ -73,7 +73,7 @@ MODEL=deepseek-chat
 
 在执行复杂任务（如“搜索 Star 最高的 Python 爬虫仓库，然后看看作者资料”）时，终端输出了真正的多步回显：
 [step 1] 🔧 search_repos({'query': 'python crawler', 'limit': 5})
-[step 2] 🔧 get_github_user({'username': 'scrapy'})
+[step 2] 🔧 get_github_user({'username': 'D4Vinci'})
 
 模型先调用了 search_repos 搜索仓库，拿到结果后，自己判断出需要再调用 get_github_user 去查作者资料。这证明 Agent 不是单轮问答，而是真正在自主规划、多步执行。
 
